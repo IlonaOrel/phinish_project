@@ -60,7 +60,7 @@
                             <div class="form-group row">
                                 <label for="date_visit" class="col-md-4 col-form-label text-md-right">{{__('Date visit')}}</label>
                                 <div class="col-md-6">
-                                    <input  type="date" class="form-control" name="date_visit" value="{{ old('date') }}"/>
+                                    <input  type="text" class="form-control" name="date_visit" value="{{ $date }}"/>
                                 </div>
                             </div>
 

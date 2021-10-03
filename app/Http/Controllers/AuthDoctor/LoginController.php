@@ -17,7 +17,6 @@ class LoginController extends Controller
 
 
     protected $redirectTo = '/doctor';
-    protected $redirectAfterLogout = '/doctor';
 
     public function __construct()
     {

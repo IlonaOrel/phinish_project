@@ -10,6 +10,7 @@ use App\Model\Patient;
 use App\Model\DoctorPatient;
 use App\Http\Requests;
 use App\Http\Requests\CardRequest;
+use Carbon\Carbon;
 
 class DoctorPatientController extends DoctorController
 {
@@ -21,7 +22,8 @@ class DoctorPatientController extends DoctorController
         $doctor = Doctor::find($doctorId);
         $examinations = Examination::all();
         $statuses = Status::all();
-        return view('hospital.cards.create', ['patient'=>$patient, 'doctor'=>$doctor, 'examinations'=>$examinations, 'statuses'=>$statuses]);
+        $date = Carbon::now();
+        return view('hospital.cards.create', ['patient'=>$patient, 'doctor'=>$doctor, 'examinations'=>$examinations, 'statuses'=>$statuses, 'date'=>$date]);
     }
     /*
      * Сохраняем данные о новом визите в карточке пациента
@@ -49,7 +51,8 @@ class DoctorPatientController extends DoctorController
         $visit = DoctorPatient::with('doctor', 'patient', 'examination', 'status')->find($visitId);
         $examinations = Examination::all();
         $statuses = Status::all();
-        return view ('hospital.cards.edit', ['doctor'=>$doctor, 'patient'=>$patient, 'visit'=>$visit, 'examinations'=>$examinations, 'statuses'=>$statuses]);
+        $date = Carbon::now();
+        return view ('hospital.cards.edit', ['doctor'=>$doctor, 'patient'=>$patient, 'visit'=>$visit, 'examinations'=>$examinations, 'statuses'=>$statuses, 'date'=>$date]);
     }
     /*
      * Обновляем данные о новом визите в карточке пациента

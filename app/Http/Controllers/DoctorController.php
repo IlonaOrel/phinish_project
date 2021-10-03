@@ -64,7 +64,7 @@ class DoctorController extends Controller
         $doctorEdit->photo = $request->photo;
         $doctorEdit->name = $request->name;
         $doctorEdit->phone = $request->phone;
-        $doctorEdit->specialization_id = $request->specialization;
+        $doctorEdit->specialization_id = $request->specialization_id;
         $doctorEdit->password = $request->password;
         $doctorEdit->save();
         return redirect(route('doctors.show', $id));

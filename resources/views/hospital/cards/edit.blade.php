@@ -24,8 +24,8 @@
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{__('Doctor')}}</label>
                                 <div class="col-md-6">
-                                    <input  type="text" class="form-control" name="doctor" value="{{ $doctor->name}}" readonly/>
-                                    <input id="name" type="hidden" class="form-control" name="doctor_id" value="{{ $doctor->id }}"/>
+                                    <input  type="text" class="form-control" name="doctor" value="{{ Auth::guard('doctor')->user()->name}}" readonly/>
+                                    <input id="name" type="hidden" class="form-control" name="doctor_id" value="{{Auth::guard('doctor')->user()->id }}"/>
                                 </div>
                             </div>
 
